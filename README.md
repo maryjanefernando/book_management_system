@@ -1,6 +1,6 @@
 # book_management_system
 
-## Installation
+## INSTALLATION
 1) Create a database named "book_management_system"
 2) Clone this repository
 3) Configure the .env file
@@ -10,7 +10,7 @@
 7) Go to {your_domain}/api/documentation to see available API Calls
 
 
-##TO DO:
+## TO DO
 1) Use Laravel Framework
 2) Create Database Migration
 3) Define Models and their relationships <br>
@@ -33,3 +33,11 @@
 
 5) Push your work to a remote repository (e.g. github)
 6) Provide repository's link
+
+## DATABASE SEED DETAILS
+1) BookSiteType - 3 records (book_store, library, kiosk)
+2) BookSite - 10 dummy records
+3) Book - 20 dummy records
+4) Customer - 10 dummy records
+5) User - 10 dummy records
+6) Transaction - 10 dummy records
