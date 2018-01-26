@@ -1,0 +1,263 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Book Management System API",
+        "contact": {
+            "name": "Mary Jane C. Fernando",
+            "url": "https://github.com/maryjanefernando"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/api/books": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Fetch books offered by a specific place",
+                "description": "Returns books.",
+                "operationId": "api.book.index",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "siteType",
+                        "in": "query",
+                        "description": "Site Type",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "book_store",
+                            "library",
+                            "kiosk"
+                        ]
+                    },
+                    {
+                        "name": "searchBy",
+                        "in": "query",
+                        "description": "Search By",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "title",
+                            "author",
+                            "site_name",
+                            "site_owner",
+                            "site_neighborhood",
+                            "site_newspaper"
+                        ]
+                    },
+                    {
+                        "name": "searchText",
+                        "in": "query",
+                        "description": "Search Text",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Book List."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/book_sites": {
+            "get": {
+                "tags": [
+                    "Book Sites"
+                ],
+                "summary": "Fetch books offered by a specific place",
+                "description": "Returns book sites.",
+                "operationId": "api.book_sites.index",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "siteType",
+                        "in": "query",
+                        "description": "Site Type",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "book_store",
+                            "library",
+                            "kiosk"
+                        ]
+                    },
+                    {
+                        "name": "searchBy",
+                        "in": "query",
+                        "description": "Search By",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "name",
+                            "owner",
+                            "neighborhood",
+                            "newspaper"
+                        ]
+                    },
+                    {
+                        "name": "searchText",
+                        "in": "query",
+                        "description": "Search Text",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Book Site List."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/book_sites/{id}": {
+            "get": {
+                "tags": [
+                    "Book Sites"
+                ],
+                "summary": "Fetch books offered by a specific place",
+                "description": "Returns specified book site.",
+                "operationId": "api.book_sites.show",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Book Site List."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        },
+        "/api/transactions": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Fetch transactions initiated by a specific employee",
+                "description": "Returns transactions.",
+                "operationId": "api.transactions.index",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "searchBy",
+                        "in": "query",
+                        "description": "Search By",
+                        "required": false,
+                        "type": "string",
+                        "enum": [
+                            "employee_id",
+                            "employee_first_name",
+                            "employee_last_name"
+                        ]
+                    },
+                    {
+                        "name": "searchText",
+                        "in": "query",
+                        "description": "Search Text",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction List."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Create a transaction",
+                "description": "Stores transactions.",
+                "operationId": "api.transactions.store",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "employee_id",
+                        "in": "formData",
+                        "description": "",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "customer_id",
+                        "in": "formData",
+                        "description": "",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "book_id",
+                        "in": "formData",
+                        "description": "",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction List."
+                    },
+                    "401": {
+                        "description": "Unauthorized action."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Error": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "description": "Class ApiController",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "description": "Class ApiController",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
