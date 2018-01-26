@@ -26,10 +26,10 @@
 	4.2) Create a transaction <br>
 	4.3) Fetching transaction initiated by a specific employee <br>
 	    Transaction Details: <br>
-			4.a) Book given <br>
-			4.b) Place of transaction <br>
-			4.c) Customer <br>
-			4.d) Employee <br>
+			4.3.a) Book given <br>
+			4.3.b) Place of transaction <br>
+			4.3.c) Customer <br>
+			4.3.d) Employee <br>
 
 5) Push your work to a remote repository (e.g. github)
 6) Provide repository's link
